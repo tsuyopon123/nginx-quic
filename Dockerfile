@@ -66,8 +66,8 @@ RUN curl -O https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && \
 
 FROM ubuntu:20.04
 
-COPY --from=builder /usr/sbin/nginx /usr/sbin/
-COPY --from=builder /etc/nginx/ /etc/nginx/
+COPY --from=build /usr/sbin/nginx /usr/sbin/
+COPY --from=build /etc/nginx/ /etc/nginx/
 
 
 RUN groupadd -g 1000 nginx \
